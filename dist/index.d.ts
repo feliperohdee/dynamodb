@@ -27,7 +27,7 @@ declare class Dynamodb {
     table: string;
     constructor(opts?: {
         accessKeyId: string;
-        indexes: TableIndex[];
+        indexes?: TableIndex[];
         region: string;
         schema: TableSchema;
         secretAccessKey: string;

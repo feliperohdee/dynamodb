@@ -121,7 +121,7 @@ class Dynamodb {
             },
             region: opts.region
         }));
-        this.indexes = opts.indexes;
+        this.indexes = opts.indexes || [];
         this.schema = opts.schema;
         this.table = opts.table;
     }

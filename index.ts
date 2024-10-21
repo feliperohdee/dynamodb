@@ -112,7 +112,7 @@ const UPDATE_OPTS: SharedOptions & {
 
 const CONSTRUCTOR_OPTS: {
 	accessKeyId: string;
-	indexes: TableIndex[];
+	indexes?: TableIndex[];
 	region: string;
 	schema: TableSchema;
 	secretAccessKey: string;
@@ -216,7 +216,7 @@ class Dynamodb {
 			})
 		);
 
-		this.indexes = opts.indexes;
+		this.indexes = opts.indexes || [];
 		this.schema = opts.schema;
 		this.table = opts.table;
 	}
