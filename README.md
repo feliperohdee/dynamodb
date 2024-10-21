@@ -2,24 +2,24 @@
 
 A TypeScript library that provides a simplified interface for interacting with Amazon DynamoDB, using the AWS SDK v3.
 
-## Features
+## 🚀 Features
 
-- Support for CRUD operations (Create, Read, Update, Delete)
-- Support for local and global secondary indexes
-- Batch operations (batch write and delete)
-- Optimized queries with filtering
-- Conditional updates
-- Pagination support
-- Upsert support
-- Automatic timestamp management
+- ✅ Support for CRUD operations (Create, Read, Update, Delete)
+- 🔍 Support for local and global secondary indexes
+- 📦 Batch operations (batch write and delete)
+- 🔎 Optimized queries with filtering
+- 🔒 Conditional updates
+- 📄 Pagination support
+- 🔄 Upsert support
+- ⏱️ Automatic timestamp management
 
-## Installation
+## 📦 Installation
 
 ```bash
 yarn add @simpleimg/dynamodb
 ```
 
-## Usage
+## 🛠️ Usage
 
 ### Initialization
 
@@ -51,7 +51,7 @@ const dynamodb = new Dynamodb({
 
 ### Basic Operations
 
-#### Create/Update Item (Put)
+#### 📝 Create/Update Item (Put)
 
 ```typescript
 const item = await dynamodb.put({
@@ -62,7 +62,7 @@ const item = await dynamodb.put({
 });
 ```
 
-#### Get Item
+#### 📖 Get Item
 
 ```typescript
 const item = await dynamodb.get({
@@ -71,7 +71,7 @@ const item = await dynamodb.get({
 });
 ```
 
-#### Update Item
+#### 🔄 Update Item
 
 ```typescript
 const updatedItem = await dynamodb.update(
@@ -88,29 +88,7 @@ const updatedItem = await dynamodb.update(
 );
 ```
 
-#### Update Item with Expression
-
-```typescript
-const updatedItem = await dynamodb.update(
-	{
-		pk: 'user#123',
-		sk: 'profile'
-	},
-	{
-		expression: 'SET #email = :email, #lastUpdated = :now',
-		attributeNames: {
-			'#email': 'email',
-			'#lastUpdated': 'lastUpdated'
-		},
-		attributeValues: {
-			':email': 'newemail@example.com',
-			':now': new Date().toISOString()
-		}
-	}
-);
-```
-
-#### Delete Item
+#### 🗑️ Delete Item
 
 ```typescript
 const deletedItem = await dynamodb.delete({
@@ -121,9 +99,7 @@ const deletedItem = await dynamodb.delete({
 
 ### Advanced Query Operations
 
-#### Fetch (Query) Items
-
-Basic fetch:
+#### 🔍 Fetch (Query) Items
 
 ```typescript
 const { items, count, lastEvaluatedKey } = await dynamodb.fetch({
@@ -131,7 +107,7 @@ const { items, count, lastEvaluatedKey } = await dynamodb.fetch({
 });
 ```
 
-#### Fetch with Filter
+#### 🔎 Fetch with Filter
 
 ```typescript
 const { items, count, lastEvaluatedKey } = await dynamodb.fetch(
@@ -144,7 +120,7 @@ const { items, count, lastEvaluatedKey } = await dynamodb.fetch(
 );
 ```
 
-#### Fetch with Pagination
+#### 📄 Fetch with Pagination
 
 ```typescript
 const { items, count, lastEvaluatedKey } = await dynamodb.fetch(
@@ -156,49 +132,9 @@ const { items, count, lastEvaluatedKey } = await dynamodb.fetch(
 );
 ```
 
-#### Fetch All Items with Chunking
-
-```typescript
-const { items, count, lastEvaluatedKey } = await dynamodb.fetch(
-	{ pk: 'user#123' },
-	{
-		all: true,
-		limit: 10,
-		onChunk: ({ items, count }) => {
-			console.log(`Received ${count} items in this chunk`);
-			// Process items here
-		}
-	}
-);
-```
-
-#### Get with Filter
-
-```typescript
-const item = await dynamodb.get(
-	{ pk: 'user#123', sk: 'profile' },
-	{
-		attributeNames: { '#foo': 'foo' },
-		attributeValues: { ':foo': 'foo-0' },
-		filterExpression: '#foo = :foo'
-	}
-);
-```
-
-#### Delete with Condition
-
-```typescript
-const deletedItem = await dynamodb.delete(
-	{ pk: 'user#123', sk: 'profile' },
-	{
-		conditionExpression: 'attribute_exists(email)'
-	}
-);
-```
-
 ### Batch Operations
 
-#### Batch Write
+#### 📦 Batch Write
 
 ```typescript
 const items = [
@@ -208,30 +144,15 @@ const items = [
 await dynamodb.batchWrite(items);
 ```
 
-#### Batch Delete
-
-Basic batch delete:
+#### 🗑️ Batch Delete
 
 ```typescript
 await dynamodb.batchDelete({ pk: 'user#123' });
 ```
 
-Batch delete with filter:
-
-```typescript
-await dynamodb.batchDelete(
-	{ pk: 'user#123' },
-	{
-		attributeNames: { '#sk': 'sk' },
-		attributeValues: { ':from': 'sk-0', ':to': 'sk-999' },
-		expression: '#sk BETWEEN :from AND :to'
-	}
-);
-```
-
 ### Using Indexes
 
-#### Query using Local Secondary Index
+#### 🔍 Query using Local Secondary Index
 
 ```typescript
 const { items, count, lastEvaluatedKey } = await dynamodb.fetch({
@@ -240,7 +161,7 @@ const { items, count, lastEvaluatedKey } = await dynamodb.fetch({
 });
 ```
 
-#### Query using Global Secondary Index
+#### 🔎 Query using Global Secondary Index
 
 ```typescript
 const { items, count, lastEvaluatedKey } = await dynamodb.fetch({
@@ -249,7 +170,7 @@ const { items, count, lastEvaluatedKey } = await dynamodb.fetch({
 });
 ```
 
-## Testing
+## 🧪 Testing
 
 This library includes a comprehensive set of tests. To run the tests:
 
@@ -269,10 +190,19 @@ yarn test
 
 Make sure to replace 'YOUR_ACCESS_KEY' and 'YOUR_SECRET_KEY' with your actual AWS credentials.
 
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please open an issue to discuss proposed changes or submit a pull request.
 
-## License
+## 📄 License
 
 This project is licensed under the ISC license.
+
+## 🙏 Acknowledgements
+
+- [AWS SDK for JavaScript v3](https://github.com/aws/aws-sdk-js-v3)
+- [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
+
+---
+
+Made with ❤️ by Simple Img
