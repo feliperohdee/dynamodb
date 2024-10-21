@@ -16,7 +16,7 @@ const createItems = (count: number) => {
 	});
 };
 
-describe('api/libs/dynamodb', () => {
+describe('index', () => {
 	let dynamodb: Dynamodb;
 
 	beforeAll(() => {
