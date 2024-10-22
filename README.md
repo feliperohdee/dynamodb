@@ -1,4 +1,4 @@
-# DynamoDB Wrapper
+#  Use DynamoDB
 
 A TypeScript library that provides a simplified interface for interacting with Amazon DynamoDB, using the AWS SDK v3.
 
@@ -16,7 +16,7 @@ A TypeScript library that provides a simplified interface for interacting with A
 ## 📦 Installation
 
 ```bash
-yarn add @simpleimg/dynamodb
+yarn add use-dynamodb
 ```
 
 ## 🛠️ Usage
@@ -24,7 +24,7 @@ yarn add @simpleimg/dynamodb
 ### Initialization
 
 ```typescript
-import Dynamodb from '@simpleimg/dynamodb';
+import Dynamodb from 'use-dynamodb';
 
 const dynamodb = new Dynamodb({
 	accessKeyId: 'YOUR_ACCESS_KEY',
@@ -190,19 +190,7 @@ yarn test
 
 Make sure to replace 'YOUR_ACCESS_KEY' and 'YOUR_SECRET_KEY' with your actual AWS credentials.
 
-## 🤝 Contributing
-
-Contributions are welcome! Please open an issue to discuss proposed changes or submit a pull request.
-
-## 📄 License
-
-This project is licensed under the ISC license.
-
 ## 🙏 Acknowledgements
 
 - [AWS SDK for JavaScript v3](https://github.com/aws/aws-sdk-js-v3)
 - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/)
-
----
-
-Made with ❤️ by Simple Img
